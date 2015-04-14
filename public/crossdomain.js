@@ -5,8 +5,8 @@ var crossdomain = {
      */
     'attr': attr = {
         'id': 'myObject',
-        'width': 100,
-        'height': 100,
+        'width': 0,
+        'height': 0,
         'AllowScriptAccess': 'always'
     },
     /*
