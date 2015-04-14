@@ -4,7 +4,7 @@ Crossdomain exploiting - insecure flash file documents
 ### How to use this?
 
 ```
-index.php#http://websitewiththeinsecurecrossdomain.xml/pageyouwant
+index.html#http://websitewiththeinsecurecrossdomain.xml/pageyouwant
 ```
 
 ### How do I handle the data?
