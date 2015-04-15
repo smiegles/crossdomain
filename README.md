@@ -3,8 +3,9 @@ Crossdomain exploiting - insecure flash file documents
 
 ### How to use this?
 
+In crossdomain.js, edit the following line: 
 ```
-index.html#http://websitewiththeinsecurecrossdomain.xml/pageyouwant
+crossdomain.setTarget('http://www.olivierbeg.nl/');
 ```
 
 ### How do I handle the data?
