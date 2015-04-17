@@ -29,34 +29,46 @@ var crossdomain = {
     'callback': function (data) {
         console.log(data);
     },
+    'getParams' : function() {
+        var response = '';
+        for (i in this.param) {
+            response += '<param name="' + i + '" value="' + this.param[i] + '" />';
+        }
+
+        return response;
+    },
+    'getAttributes' : function() {
+        var response = '';
+        for (i in this.attr) {
+            response += ' ' + i + '="' + this.attr[i] + '"';
+        }
+
+        return response;
+    },
     /*
      * This functions implements the flash object on the page.
      * @param string src
      * @return void
      */
-    'create': function (src) {
+    'create': function (element) {
         var i;
         this.attr.type = 'application/x-shockwave-flash';
         if (window.ActiveXObject) {
             this.attr.classid = 'clsid:d27cdb6e-ae6d-11cf-96b8-444553540000';
-            this.param.movie = src;
+            this.param.movie = this.file;
         }
         else {
-            this.attr.data = src;
+            this.attr.data = this.file;
+        }
+        var response = '<object' + this.getAttributes() + '>' + this.getParams() + '</object>';
+
+        if(element !== undefined) {
+            var dump = document.querySelector(element);
+            dump.innerHTML = response;
+            return true; 
         }
 
-        var html = '<object';
-        for (i in this.attr) {
-            html += ' ' + i + '="' + this.attr[i] + '"';
-        }
-        html += '>';
-
-        for (i in this.param) {
-            html += '<param name="' + i + '" value="' + this.param[i] + '" />';
-        }
-        
-        html += '</object>';
-        document.write(html);
+        document.write(response);
     },
     /*
      * Set the domain to target
@@ -66,7 +78,17 @@ var crossdomain = {
     'setTarget' : function(target) {
         this.target = target;
     }
+    /*
+     * Set the flash files location
+     * @param string file
+     * @return void
+     */
+    'setTarget' : function(file) {
+        this.file = file;
+    }
 };
 sendToJavaScript = crossdomain.callback;
+
 crossdomain.setTarget('http://www.olivierbeg.nl/');
-crossdomain.create('crossdomain.swf');
+crossdomain.setFile('crossdomain.swf');
+crossdomain.create();
