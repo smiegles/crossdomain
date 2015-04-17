@@ -69,4 +69,4 @@ var crossdomain = {
 };
 sendToJavaScript = crossdomain.callback;
 crossdomain.setTarget('http://www.olivierbeg.nl/');
-crossdomain.create('CrossDomainDataHijack.swf');
+crossdomain.create('crossdomain.swf');
