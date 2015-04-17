@@ -1,5 +1,5 @@
 # crossdomain
-Crossdomain exploiting - insecure flash file documents
+Crossdomain exploiting - exploiting insecure crossdomain.xml files.
 
 ### How to use this?
 
