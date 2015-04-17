@@ -55,10 +55,10 @@ var crossdomain = {
         this.attr.type = 'application/x-shockwave-flash';
         if (window.ActiveXObject) {
             this.attr.classid = 'clsid:d27cdb6e-ae6d-11cf-96b8-444553540000';
-            this.param.movie = this.file;
+            this.param.movie = this.file + '?input=' + this.target;
         }
         else {
-            this.attr.data = this.file;
+            this.attr.data = this.file + '?input=' + this.target;
         }
         var response = '<object' + this.getAttributes() + '>' + this.getParams() + '</object>';
 
@@ -77,13 +77,13 @@ var crossdomain = {
      */
     'setTarget' : function(target) {
         this.target = target;
-    }
+    },
     /*
      * Set the flash files location
      * @param string file
      * @return void
      */
-    'setTarget' : function(file) {
+    'setFile' : function(file) {
         this.file = file;
     }
 };
